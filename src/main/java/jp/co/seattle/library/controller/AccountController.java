@@ -66,13 +66,13 @@ public class AccountController {
 
         //メール、パス、パス確認どれか一つでも半角英数出なかった場合
         if (!isValidEmail || !isValidPW || !isValidPWCheck) {
-            model.addAttribute("mail", "半角英数を入力してください");
+            model.addAttribute("validError", "半角英数を入力してください");
             return "createAccount";
         }
 
         //パス、
         if (!(password.equals(passwordForCheck))) {
-            model.addAttribute("pass", "同一のパスワードを入力してください");
+            model.addAttribute("passError", "同一のパスワードを入力してください");
             return "createAccount";
         }
 
