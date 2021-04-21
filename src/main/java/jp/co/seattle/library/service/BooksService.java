@@ -73,5 +73,26 @@ public class BooksService {
                 + "sysdate())";
 
         jdbcTemplate.update(sql);
+
     }
+
+
+
+
+
+    //書籍を消去する
+    public void deleteBookInfo(int bookId) {
+        String sql = "delete from books where Id =" + bookId + ";";
+
+        jdbcTemplate.update(sql);
+
+    }
+
 }
+
+
+
+
+
+
+
