@@ -31,6 +31,7 @@ public class AccountController {
     @RequestMapping(value = "/newAccount", method = RequestMethod.GET) //value＝actionで指定したパラメータ
     public String createAccount(Model model) {
         return "createAccount";
+
     }
 
     /**
