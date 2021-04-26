@@ -80,7 +80,7 @@ public class BooksService {
 
 
     /**
-     * 
+     * 書籍を消去する
      * @param bookId
      */
     public void deleteBookInfo(int bookId) {
@@ -91,10 +91,3 @@ public class BooksService {
     }
 
 }
-
-
-
-
-
-
-
