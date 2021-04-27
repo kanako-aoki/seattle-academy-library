@@ -42,6 +42,9 @@
 						<input type="file" accept="image/*" name="thumbnail" id="thumbnail">
 					</div>
 				<div class="content_right">
+                        <c:if test="${!empty error}">
+                          <div class = "error">${error}</div>                             
+                        </c:if>     
 					<div>
 						<span>書籍名</span><span class="care care2">必須</span>
 						<c:if test="${!empty bookInfo}">
@@ -69,6 +72,33 @@
 							<input type="text" name="publisher">
 						</c:if>
 					</div>
+                    <div>
+                        <span>出版日</span><span class="care care2">必須</span>
+                        <c:if test="${!empty bookInfo}">
+                            <input type="text" name="publish_date" value="${bookInfo.publish_date}">
+                        </c:if>
+                        <c:if test="${empty bookInfo}">
+                            <input type="text" name="publish_date">
+                        </c:if>
+                    </div>
+                    <div>
+                        <span>ISBN</span>
+                        <c:if test="${!empty bookInfo}">
+                            <input type="text" name="isbn" value="${bookInfo.isbn}">
+                        </c:if>
+                        <c:if test="${empty bookInfo}">
+                            <input type="text" name="isbn">
+                        </c:if>
+                    </div>
+                    <div>
+                        <span>説明文</span>
+                        <c:if test="${!empty bookInfo}">
+                            <input type="text" name="description" value="${bookInfo.description}">
+                        </c:if>
+                        <c:if test="${empty bookInfo}">
+                            <input type="text" name="description">
+                        </c:if>
+                    </div>
 					<input type="hidden" id="bookId" name="bookId" value="${bookInfo.bookId}">
 				</div>
 			</div>
