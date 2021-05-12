@@ -51,15 +51,15 @@ public class BulkRegistController {
         //エラー用リスト生成
         List<String> erorrList = new ArrayList<String>();
 
-        String[] splitLine = new String[6];
-
         //文字列として読み込めるように   
         try {
             InputStream stream = csvFile.getInputStream();
             Reader reader = new InputStreamReader(stream);
             BufferedReader buf = new BufferedReader(reader);
             String line;
+            
             while ((line = buf.readLine()) != null) {
+                String[] splitLine = new String[6];
                 splitLine = line.split(",");
                 arrays.add(splitLine);
                 //バリデーションチェック
@@ -84,6 +84,7 @@ public class BulkRegistController {
             }
             //ファイルを読み込めなかった時
         } catch (IOException e) {
+            erorrList.add(arrays.size() + "ファイルを読み込むことができませんでした");
         }
         //エラーリストがからではない時エラー文言
         if (!erorrList.isEmpty()) {
