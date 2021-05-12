@@ -43,7 +43,6 @@ public class DeleteBookController {
         int count = booksService.countBook(bookId);
 
         if (count == 0) {
-
             booksService.deleteBookInfo(bookId);
         } else {
             model.addAttribute("deleteDisabled", "disabled");

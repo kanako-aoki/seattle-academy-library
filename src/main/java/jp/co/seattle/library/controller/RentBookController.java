@@ -23,13 +23,16 @@ public class RentBookController {
     @Autowired
     private ThumbnailService thumbnailService;
 
+    /**書籍を借りる際
+     * @param bookId
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/rentBook", method = RequestMethod.POST) //value＝actionで指定したパラメータ
-    //RequestParamでname属性を取得
-    //借りるボタン押したら
+    //RequestParamでname属性を取得   
     public String rentBook(
             @RequestParam("bookId") int bookId,
             Model model) {
-        //貸し出し可にする
         model.addAttribute("lendingStatus", "貸し出し中");
 
         booksService.rentBook(bookId);
@@ -37,12 +40,15 @@ public class RentBookController {
         return "details";
     }
 
-    //返すボタンを押したら
+    /**書籍を返す際
+     * @param bookId
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/returnBook", method = RequestMethod.POST) //value＝actionで指定したパラメータ
     public String returnBook(
             @RequestParam("bookId") int bookId,
             Model model) {
-        //貸し出し中にする
         model.addAttribute("lendingStatus", "貸し出し可");
 
         booksService.returnBook(bookId);
