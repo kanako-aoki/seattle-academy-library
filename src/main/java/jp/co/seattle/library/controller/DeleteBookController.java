@@ -40,8 +40,15 @@ public class DeleteBookController {
             Model model) {
         logger.info("Welcome delete! The client locale is {}.", locale);
 
-        booksService.deleteBookInfo(bookId);
+        int count = booksService.countBook(bookId);
 
+        if (count == 0) {
+            booksService.deleteBookInfo(bookId);
+        } else {
+            model.addAttribute("deleteDisabled", "disabled");
+            model.addAttribute("lendingStatus", "この本は貸し出し中のため、削除できません。");
+            return "details";
+        }
         return "home";
 
     }

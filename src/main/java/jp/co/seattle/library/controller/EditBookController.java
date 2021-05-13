@@ -122,8 +122,8 @@ public class EditBookController {
         // TODO 編集した書籍の詳細情報を表示するように実装
         BookDetailsInfo newBookDetailsInfo = booksService.getBookInfo(bookId);
         model.addAttribute("bookDetailsInfo", newBookDetailsInfo);
-
-        //  詳細画面に遷移する
+        model.addAttribute("lendingStatus", "この本は貸し出し可能です。");
+        //  詳細画面に遷移する     
         return "details";
     }
 
