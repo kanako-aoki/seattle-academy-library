@@ -49,6 +49,7 @@ public class DeleteBookController {
             model.addAttribute("lendingStatus", "この本は貸し出し中のため、削除できません。");
             return "details";
         }
+        model.addAttribute("bookList", booksService.getBookList());
         return "home";
 
     }
