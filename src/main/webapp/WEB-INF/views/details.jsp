@@ -78,11 +78,13 @@
             </div>
         </div>
         <div class="edtDelBookBtn_box">
+         <input type="hidden" class="rentDisabled" value="${lendingStatus}">
             <form method="post" action="rentBook">
-                <button type="submit" value="${bookDetailsInfo.bookId}" ${rentDisabled} name="bookId" class="btn_rentBook">借りる</button>
+                <button type="submit" value="${bookDetailsInfo.bookId}"  name="bookId" class="btn_rentBook">借りる</button>              
             </form>
             <form method="post" action="returnBook">
-                <button type="submit" value="${bookDetailsInfo.bookId}" ${returnDisabled} name="bookId" class="btn_returnBook">返す</button>
+                <button type="submit" value="${bookDetailsInfo.bookId}"  name="bookId" class="btn_returnBook">返す</button>
+                 
             </form>
             <form method="post" action="editBook">
                 <button type="submit" value="${bookDetailsInfo.bookId}" name="bookId" class="btn_editBook">編集</button>

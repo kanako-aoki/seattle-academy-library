@@ -6,4 +6,12 @@ $(function(){
         return false;
     }
 });
+	let result=$('.rentDisabled').val();
+ 
+	if(result==='貸し出し可能です。'){
+		$('.btn_returnBook').prop('disabled', true);
+	} else {
+		$('.btn_rentBook').prop('disabled', true);
+	}
 	});
+	

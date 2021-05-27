@@ -78,11 +78,11 @@
                             <input type="text" name="publish_date" value="${bookInfo.publish_date}">
                         </c:if>
                         <c:if test="${empty bookInfo}">
-                            <input type="text" name="publish_date">
+                            <input type="text" name="publish_date"  placeholder="YYYYMMDD">
                         </c:if>
                     </div>
                     <div>
-                        <span>ISBN</span>
+                        <span>ISBN</span><span class="care care1">任意</span>
                         <c:if test="${!empty bookInfo}">
                             <input type="text" name="isbn" value="${bookInfo.isbn}">
                         </c:if>
@@ -91,7 +91,7 @@
                         </c:if>
                     </div>
                     <div>
-                        <span>説明文</span>
+                        <span>説明文</span><span class="care care1">任意</span>
                         <c:if test="${!empty bookInfo}">
                             <input type="text" name="description" value="${bookInfo.description}">
                         </c:if>

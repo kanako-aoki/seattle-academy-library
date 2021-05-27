@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import jp.co.seattle.library.dto.BookDetailsInfo;
 import jp.co.seattle.library.service.BooksService;
 import jp.co.seattle.library.service.ThumbnailService;
 
@@ -33,10 +34,11 @@ public class RentBookController {
     public String rentBook(
             @RequestParam("bookId") int bookId,
             Model model) {
-        model.addAttribute("lendingStatus", "貸し出し中");
-
         booksService.rentBook(bookId);
-        model.addAttribute("rentDisabled", "disabled");
+        // TODO 登録した書籍の詳細情報を表示するように実装
+        BookDetailsInfo bookDetailsInfo = booksService.getBookInfo(bookId);
+        model.addAttribute("bookDetailsInfo", bookDetailsInfo);
+        model.addAttribute("lendingStatus", "貸し出し不可です。");
         return "details";
     }
 
@@ -49,10 +51,11 @@ public class RentBookController {
     public String returnBook(
             @RequestParam("bookId") int bookId,
             Model model) {
-        model.addAttribute("lendingStatus", "貸し出し可");
-
         booksService.returnBook(bookId);
-        model.addAttribute("returnDisabled", "disabled");
+        // TODO 登録した書籍の詳細情報を表示するように実装
+        BookDetailsInfo bookDetailsInfo = booksService.getBookInfo(bookId);
+        model.addAttribute("bookDetailsInfo", bookDetailsInfo);
+        model.addAttribute("lendingStatus", "貸し出し可能です。");
         return "details";
     }
 

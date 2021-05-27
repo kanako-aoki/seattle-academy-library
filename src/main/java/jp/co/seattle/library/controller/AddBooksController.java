@@ -122,7 +122,7 @@ public class AddBooksController {
         int bookId = booksService.getNewId();
         BookDetailsInfo bookDetailsInfo = booksService.getBookInfo(bookId);
         model.addAttribute("bookDetailsInfo", bookDetailsInfo);
-        
+        model.addAttribute("lendingStatus", "貸し出し可能です。");
         //  詳細画面に遷移する
         return "details";
     }
