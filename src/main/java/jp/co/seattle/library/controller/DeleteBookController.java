@@ -46,7 +46,7 @@ public class DeleteBookController {
             booksService.deleteBookInfo(bookId);
         } else {
             model.addAttribute("deleteDisabled", "disabled");
-            model.addAttribute("lendingStatus", "この本は貸し出し中のため、削除できません。");
+
             return "details";
         }
         model.addAttribute("bookList", booksService.getBookList());

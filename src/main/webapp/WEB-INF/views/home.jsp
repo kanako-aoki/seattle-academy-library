@@ -49,9 +49,9 @@
                             </form>
                             <ul>
                                 <li class="book_title">${bookInfo.title}</li>
-                                <li class="book_title">${bookInfo.author}</li>
-                                <li class="book_title">${bookInfo.publisher}</li>
-                                <li class="book_title">${bookInfo.publishDate}</li>
+                                <li class="book_author">${bookInfo.author}(著)</li>
+                                <li class="book_publisher">出版社${bookInfo.publisher}</li>
+                                <li class="book_publish_date">出版日${bookInfo.publishDate}</li>
                             </ul>
                         </div>
                     </c:forEach>

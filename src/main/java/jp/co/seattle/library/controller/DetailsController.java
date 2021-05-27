@@ -41,11 +41,11 @@ public class DetailsController {
         int count = booksService.countBook(bookId);
         if (count == 0) {
             model.addAttribute("lendingStatus", "貸し出し可能です。");
-            model.addAttribute("returnDisabled", "disabled");
+            // model.addAttribute("returnDisabled", "disabled");
         } else {
             model.addAttribute("lendingStatus", "貸し出し不可です。");
-            model.addAttribute("rentDisabled", "disabled");
-            model.addAttribute("deleteDisabled", "disabled");
+            //model.addAttribute("rentDisabled", "disab");
+            // model.addAttribute("deleteDisabled", "disabled");
         }
         model.addAttribute("bookDetailsInfo", booksService.getBookInfo(bookId));
 
